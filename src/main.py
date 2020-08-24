@@ -1,10 +1,26 @@
 # pylint: disable=too-few-public-methods, no-self-use
+from typing import List
+
+
 class MenuItem:
-    pass
+    def __init__(self) -> None:
+        self._name = ""
+
+    @property
+    def name(self) -> str:
+        return self._name
 
 
 class Menu:
+    items: List[MenuItem]
+
+    def __init__(self, items: List[MenuItem]) -> None:
+        self.items = items
+
     def choose(self, name: str) -> MenuItem:
+        for item in self.items:
+            if item.name == name:
+                return item
         return None
 
 
