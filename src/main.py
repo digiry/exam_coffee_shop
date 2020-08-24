@@ -1,9 +1,4 @@
-# pylint: disable=too-few-public-methods
-class Customer:
-    def order(self, menu_name: str):
-        pass
-
-
+# pylint: disable=too-few-public-methods, no-self-use
 class MenuItem:
     pass
 
@@ -21,3 +16,10 @@ class Coffee:
 class Barista:
     def make_coffee(self, menu_item: MenuItem) -> Coffee:
         return None
+
+
+class Customer:
+    def order(self, menu_name: str, menu: Menu, barista: Barista):
+        menu_item = menu.choose(menu_name)
+        coffee = barista.make_coffee(menu_item=menu_item)
+        print(coffee)
