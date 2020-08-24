@@ -1,5 +1,5 @@
 # pylint: disable=too-few-public-methods, no-self-use
-from typing import List
+from typing import List, Any
 
 
 class MenuItem:
@@ -21,7 +21,7 @@ class Menu:
     def __init__(self, items: List[MenuItem]) -> None:
         self.items = items
 
-    def choose(self, name: str) -> MenuItem:
+    def choose(self, name: str) -> Any:
         for item in self.items:
             if item.name == name:
                 return item
