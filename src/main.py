@@ -3,12 +3,16 @@ from typing import List
 
 
 class MenuItem:
-    def __init__(self) -> None:
-        self._name = ""
+    def __init__(self, name: str, price: int) -> None:
+        self._name = name
+        self._price = price
 
     @property
     def name(self) -> str:
         return self._name
+
+    def cost(self) -> int:
+        return self._price
 
 
 class Menu:
@@ -26,12 +30,14 @@ class Menu:
 
 class Coffee:
     def __init__(self, menu_item: MenuItem) -> None:
-        pass
+        self._name = menu_item.name
+        self._price = menu_item.cost()
 
 
 class Barista:
     def make_coffee(self, menu_item: MenuItem) -> Coffee:
-        return None
+        coffee = Coffee(menu_item=menu_item)
+        return coffee
 
 
 class Customer:
